@@ -1,0 +1,64 @@
+.nav {
+    background-color: #333333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.logo {
+    padding: 0;
+}
+
+.hamburger {
+    display: none;
+}
+
+.ul {
+    display: flex;
+    list-style: none; 
+    /* margin: 0; */
+    padding: 0;
+    margin-left: auto;
+}
+
+.li {
+    margin: 0 1rem;
+}
+
+/* NO NEED - alr in globals.css
+.a {
+    color: inherit;
+    text-decoration: none;
+}
+*/
+
+.a:hover {
+    color:#968a0d;
+}
+
+/* Responsive design - screen size <= 768px (tablet size) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .hamburger:hover {
+        color:#968a0d; 
+    }
+
+    .ul {
+        display: flex;
+        flex-direction: column;
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+        padding: 1rem 0;
+
+        &.show {
+            height: auto;
+        }
+    }
+}
