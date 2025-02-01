@@ -56,7 +56,7 @@ const NavBar = () => {
         }}
       >
         <Box
-          visibleFrom="sm"
+          //   visibleFrom="sm" // don't show on sm
           style={{
             paddingTop: "var(--mantine-spacing-lg)",
             height: "84px",
@@ -65,9 +65,7 @@ const NavBar = () => {
             justifyContent: "space-between",
           }}
         >
-          <Group gap={0} justify="flex-end">
-            {mainItems}
-          </Group>
+          <Group gap={0}>{mainItems}</Group>
         </Box>
       </Container>
     </header>
