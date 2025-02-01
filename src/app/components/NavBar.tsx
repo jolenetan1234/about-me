@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Anchor, Box, Burger, Container, Group } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import { Anchor, Box, Container, Group } from "@mantine/core";
 import classes from "@/styles/NavBar.module.css";
 
 const mainLinks = [
@@ -13,49 +12,42 @@ const mainLinks = [
 ];
 
 const NavBar = () => {
-  const [opened, { toggle }] = useDisclosure(false);
   const [active, setActive] = useState(0);
 
-  const mainItems = mainLinks.map((item, index) => (
-    <Anchor<"a">
-      href={item.link}
-      key={item.label}
-      className={classes.mainLink}
-      data-active={index === active || undefined}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(index);
-      }}
-      //   style={{
-      //     // textTransform: "uppercase",
-      //     fontSize: "var(--mantine-font-size-xs)",
-      //     color:
-      //       "light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-1))",
-      //     padding: "7px var(--mantine-spacing-sm)",
-      //     fontWeight: "700",
-      //     borderBottom: "2px solid transparent",
-      //     transition: "border-color 100ms ease, color 100ms ease",
-      //   }}
-    >
-      {item.label}
-    </Anchor>
-  ));
+  const mainItems = mainLinks.map((item, index) => {
+    // const dataActive = index === active;
 
-  //   const secondaryItems = userLinks.map((item) => (
-  //     <Anchor
-  //       href={item.link}
-  //       key={item.label}
-  //       onClick={(event) => event.preventDefault()}
-  //       className={classes.secondaryLink}
-  //     >
-  //       {item.label}
-  //     </Anchor>
-  //   ));
+    return (
+      <Anchor<"a">
+        href={item.link}
+        key={item.label}
+        className={classes.mainLink}
+        data-active={index === active || undefined}
+        onClick={(event) => {
+          event.preventDefault();
+          setActive(index);
+        }}
+        style={
+          {
+            // textTransform: "uppercase",
+            //   fontSize: "var(--mantine-font-size-xs)",
+            //   color:
+            //     "light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-1))",
+            //   padding: "7px var(--mantine-spacing-sm)",
+            //   fontWeight: "700",
+            //   borderBottom: "2px solid transparent",
+            //   transition: "border-color 100ms ease, color 100ms ease",
+          }
+        }
+      >
+        {item.label}
+      </Anchor>
+    );
+  });
 
   return (
     <header className={classes.header}>
       <Container
-        // className={classes.inner}
         style={{
           height: "84px",
           display: "flex",
@@ -63,9 +55,7 @@ const NavBar = () => {
           justifyContent: "center",
         }}
       >
-        {/* <MantineLogo size={34} /> */}
         <Box
-          //   className={classes.links}
           visibleFrom="sm"
           style={{
             paddingTop: "var(--mantine-spacing-lg)",
@@ -75,26 +65,10 @@ const NavBar = () => {
             justifyContent: "space-between",
           }}
         >
-          {/* <Group justify="flex-end">{secondaryItems}</Group> */}
-          <Group
-            gap={0}
-            justify="flex-end"
-            // className={classes.mainLinks}
-            style={{}}
-          >
+          <Group gap={0} justify="flex-end">
             {mainItems}
           </Group>
         </Box>
-        {/* <Burger
-          opened={opened}
-          onClick={toggle}
-          className={classes.burger}
-          size="sm"
-          hiddenFrom="sm"
-          style={{
-            backgroundColor: "green",
-          }}
-        /> */}
       </Container>
     </header>
   );
