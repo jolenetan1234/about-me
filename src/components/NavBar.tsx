@@ -1,5 +1,8 @@
 "use client"
 
+import { DrawOutlineButton } from "./ui/buttons";
+import { Separator } from "./ui/separator";
+
 // import * as React from "react"
 // import Link from "next/link"
 
@@ -74,7 +77,22 @@ const navbarItems = [
 
 const NavBar = () => {
   return (
-    <>Navbar</>
+    // sticky navbar
+    <nav className="h-[10vh] fixed top-0 left-0 right-0"> 
+        <div className="h-full flex justify-center items-center">
+            <ul className="flex justify-center items-center sm:w-3/4">
+              <div className="mx-[2%]">LOGO</div>
+              {navbarItems.map(item => (
+                <li 
+                key={item.title} 
+                className="mx-[2%]">
+                    <DrawOutlineButton>{item.title}</DrawOutlineButton>
+                </li>
+              ))}
+            </ul>
+        </div>
+      <Separator />
+    </nav>
   )
 }
 
