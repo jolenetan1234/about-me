@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react";
 import { DrawOutlineButton } from "./ui/buttons";
 import { Separator } from "./ui/separator";
 
@@ -76,11 +77,17 @@ const navbarItems = [
 ]
 
 const NavBar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = () => {
+    setIsOpen(prev => !prev);
+  }
   return (
     // sticky navbar
-    <nav className="h-[10vh] fixed top-0 left-0 right-0"> 
-        <div className="h-full flex justify-center items-center">
-            <ul className="flex justify-center items-center sm:w-3/4">
+    <nav className="sm:h-[8vh] md:h-[10vh] fixed top-0 left-0 right-0 w-full"> 
+        <div className="h-full flex justify-between md:justify-center items-center mx-[10%]">
+          {/* List of navbar items. Hidden on small screens. */}
+            <ul className="hidden md:flex justify-center items-center w-3/4">
               <div className="mx-[2%]">LOGO</div>
               {navbarItems.map(item => (
                 <li 
@@ -90,8 +97,33 @@ const NavBar = () => {
                 </li>
               ))}
             </ul>
+
+            {/* Logo. Hidden on screens md and above. */}
+            <div className="md:hidden">LOGO</div>
+            <button 
+            className="md:hidden"
+            onClick={toggleOpen}
+            >
+              hamburger
+            </button>
         </div>
       <Separator />
+
+      {/* Navbar items for small screens. Open when `isOpen`*/}
+      {isOpen && (
+        <ul className="md:hidden sticky top-0 left-0 w-full h-[20vh] flex flex-col w-[96%] mx-auto ">
+          {navbarItems.map(item => (
+            <li 
+            key={item.title} 
+            className="flex justify-center items-center block hover:primary-color text-center flex-1"
+            >
+              <button
+              className="w-full h-full focus:bg-primary-color hover:bg-primary-color hover:text-black focus:text-black focus:outline-none rounded-lg"
+              >{item.title}</button>
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
   )
 }
