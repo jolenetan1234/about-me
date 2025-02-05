@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { DrawOutlineButton } from "./ui/buttons";
+import { DrawOutlineButton, HamburgerButton } from "./ui/buttons";
 import { Separator } from "./ui/separator";
 
 // import * as React from "react"
@@ -104,7 +104,7 @@ const NavBar = () => {
             className="md:hidden"
             onClick={toggleOpen}
             >
-              hamburger
+              <HamburgerButton />
             </button>
         </div>
       <Separator />
