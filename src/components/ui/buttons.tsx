@@ -43,7 +43,7 @@ const HamburgerButton = ({ isOpen, onClick, className }: {
 
   return (
     <button 
-      className={`group h-20 w-20 rounded-lg flex items-center justify-center ${className}`}
+      className={`group rounded-lg flex items-center justify-center ${className}`}
       onClick={onClick}
       // onClick={() => setIsOpen(!isOpen)}
     >
