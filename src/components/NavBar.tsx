@@ -84,17 +84,17 @@ const NavBar = () => {
   }
   return (
     // sticky navbar
-    <nav className="h-[8vh] md:h-[10vh] fixed top-0 left-0 right-0 w-full"> 
+    <nav className="h-[8vh] md:h-[10vh] fixed top-0 left-0 right-0 w-full bg-[var(--navbar-bg)]"> 
       {/* <div className="h-full w-full"> */}
         {/* flexbox for md, containing navbar items */}
         <div className="h-full flex justify-between md:justify-center items-center w-[96%] m-auto">
           {/* List of navbar items. Hidden on small screens. */}
-            <ul className="hidden md:flex justify-center items-center w-3/4">
-              <div className="mx-[2%]">LOGO</div>
+            <ul className="hidden md:flex justify-center items-center w-3/4 m-auto">
+              <div className="flex-1 text-center px-[1%]">LOGO</div>
               {navbarItems.map(item => (
                 <li 
                 key={item.title} 
-                className="mx-[2%]">
+                className="flex-1 px-[1%]">
                     <DrawOutlineButton>{item.title}</DrawOutlineButton>
                 </li>
               ))}
@@ -108,22 +108,23 @@ const NavBar = () => {
             className="md:hidden w-1/5"
             />
         </div>
-      <Separator />
       
       {/* Navbar items for small screens. Open when `isOpen`*/}
       {isOpen && (
-        <ul className="md:hidden sticky top-0 left-0 w-full h-[20vh] flex flex-col w-[96%] mx-auto">
-          {navbarItems.map(item => (
-            <li 
-            key={item.title} 
-            className="flex justify-center items-center block hover:primary-color text-center flex-1"
-            >
-              <button
-              className="w-full h-full focus:bg-primary-color hover:bg-primary-color hover:text-black focus:text-black focus:outline-none rounded-lg"
-              >{item.title}</button>
-            </li>
-          ))}
-        </ul>
+        // <div className="w-full">
+          <ul className="md:hidden sticky top-0 left-0 w-full h-[20vh] flex flex-col mx-auto bg-[var(--navbar-bg)]">
+            {navbarItems.map(item => (
+              <li 
+              key={item.title} 
+              className="flex justify-center items-center block hover:primary-color text-center flex-1 w-[95%] m-auto mb-3"
+              >
+                <button
+                className="w-full h-full focus:bg-primary-color hover:bg-primary-color hover:text-black focus:text-black focus:outline-none rounded-lg"
+                >{item.title}</button>
+              </li>
+            ))}
+          </ul>
+        // </div>
       )}
       {/* </div> */}
     </nav>

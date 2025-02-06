@@ -6,13 +6,17 @@
   --background: #ffffff;
   --foreground: #171717;
   --primary-color: #FFCC00;
+  --secondary-color: #31087B;
+  --navbar-bg: var(--secondary-color);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #100720;
     --foreground: #ededed;
-    --primary-color: #E6B800;
+    --primary-color: #FFC23C;
+    --secondary-color: #31087B;
+    --navbar-bg: var(--secondary-color);
   }
 }
 
