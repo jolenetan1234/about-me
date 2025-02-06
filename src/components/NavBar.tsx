@@ -85,7 +85,7 @@ const NavBar = () => {
   return (
     // sticky navbar
     <nav className="sm:h-[8vh] md:h-[10vh] fixed top-0 left-0 right-0 w-full"> 
-        <div className="h-full flex justify-between md:justify-center items-center mx-[10%]">
+        <div className="h-full flex justify-between md:justify-center items-center w-full">
           {/* List of navbar items. Hidden on small screens. */}
             <ul className="hidden md:flex justify-center items-center w-3/4">
               <div className="mx-[2%]">LOGO</div>
@@ -100,12 +100,11 @@ const NavBar = () => {
 
             {/* Logo. Hidden on screens md and above. */}
             <div className="md:hidden">LOGO</div>
-            <button 
+            <HamburgerButton 
+            onClick={toggleOpen} 
+            isOpen={isOpen} 
             className="md:hidden"
-            onClick={toggleOpen}
-            >
-              <HamburgerButton />
-            </button>
+            />
         </div>
       <Separator />
 
