@@ -89,8 +89,8 @@ const NavBar = () => {
         {/* flexbox for md, containing navbar items */}
         <div className="h-full flex justify-between md:justify-center items-center w-[96%] m-auto">
           {/* List of navbar items. Hidden on small screens. */}
-            <ul className="hidden md:flex justify-center items-center w-3/4 m-auto">
-              <div className="flex-1 text-center px-[1%]">LOGO</div>
+            <ul className="hidden md:flex justify-center items-center w-1/2 m-auto gap-1">
+              <div className="flex-1 text-center">LOGO</div>
               {navbarItems.map(item => (
                 <li 
                 key={item.title} 
