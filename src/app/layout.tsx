@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
-import "./globals.css";
-// import "@mantine/core/styles.css";
+import "@mantine/core/styles.css";
+import "./globals.css"; // let this CSS override mantine's one
 
 import {
   ColorSchemeScript,
@@ -9,6 +9,7 @@ import {
   mantineHtmlProps,
 } from "@mantine/core";
 import NavBar from "../components/NavBar";
+import { ThemeToggleButton } from "@/components/ui/buttons";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -34,7 +35,8 @@ export default function RootLayout({
       >
         <MantineProvider>
           <NavBar />
-          {children}
+          <ThemeToggleButton className="fixed bottom-4 right-4 flex justify-center items-center" />
+          <div className="pt-[8vh] md:pt-[10vh] h-full">{children}</div>
         </MantineProvider>
       </body>
     </html>
