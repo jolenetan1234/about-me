@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DrawOutlineButton, HamburgerButton } from "./ui/buttons";
 import {} from "./ui/separator";
 
@@ -25,13 +25,43 @@ const navbarItems = [
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  // store previous scroll position
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  // sets whether or not to hide/show navbar
+  const [showNavbar, setShowNavbar] = useState(true);
+
+  useEffect(() => {
+    console.log("HIII");
+    const handleScroll = () => {
+      const currScrollPos = window.scrollY;
+
+      if (prevScrollPos > currScrollPos) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
+
+      setPrevScrollPos(currScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos]);
 
   const toggleOpen = () => {
     setIsOpen((prev) => !prev);
   };
   return (
     // sticky navbar
-    <nav className="h-[8%] md:h-[10%] top-0 left-0 right-0 w-full bg-[var(--navbar-bg)] fixed">
+    <nav
+      className={`h-[8%] md:h-[10%] w-full bg-[var(--navbar-bg)] fixed transition-all duration-300 
+      ${showNavbar ? "top-0" : "-top-20"}
+    `}
+    >
       {/* <div className="h-full w-full"> */}
       {/* flexbox for md, containing navbar items */}
       <div className="h-full flex justify-between md:justify-center items-center w-[96%] m-auto">
