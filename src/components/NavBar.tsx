@@ -31,7 +31,7 @@ const NavBar = () => {
   const [showNavbar, setShowNavbar] = useState(true);
 
   useEffect(() => {
-    console.log("HIII");
+    // Handle scrolling and hide navbar accordingly
     const handleScroll = () => {
       const currScrollPos = window.scrollY;
 
@@ -46,20 +46,31 @@ const NavBar = () => {
 
     window.addEventListener("scroll", handleScroll);
 
+    // Prevent navbar from scrolling up when `isOpen`
+    // if (isOpen) {
+    //   document.body.style.overflow = "hidden"; // Disable scrolling
+    // } else {
+    //   document.body.style.overflow = ""; // Enable scrolling
+    // }
+
     // Cleanup on unmount
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll); // Stop listening to scroll events
+      // document.body.style.overflow = ""; // Enable scrolling
     };
   }, [prevScrollPos]);
 
   const toggleOpen = () => {
     setIsOpen((prev) => !prev);
   };
+
   return (
     // sticky navbar
     <nav
-      className={`h-[8%] md:h-[10%] w-full bg-[var(--navbar-bg)] fixed transition-all duration-300 
+      style={{}}
+      className={`h-[8%] md:h-[10%] w-full bg-[var(--navbar-bg)] transition-all duration-300 z-20
       ${showNavbar ? "top-0" : "-top-20"}
+      ${isOpen ? "fixed top-0" : "absolute"}
     `}
     >
       {/* <div className="h-full w-full"> */}
