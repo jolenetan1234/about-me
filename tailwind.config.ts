@@ -11,7 +11,7 @@ export default {
       colors: {
         // background: "var(--background)",
         // foreground: "var(--foreground)",
-        "primary-color": "var(--primary-color)", // Custom by me
+        // "primary-color": "var(--primary)", // Custom by me
 
          border: "hsl(var(--border))",
         input: "hsl(var(--input))",

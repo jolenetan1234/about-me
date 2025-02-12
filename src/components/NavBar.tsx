@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { DrawOutlineButton, HamburgerButton } from "./ui/buttons";
-import {} from "./ui/separator";
 
 const navbarItems = [
   {

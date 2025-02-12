@@ -1,15 +1,14 @@
 "use client";
 
-import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
-import "@mantine/core/styles.css";
+// import "@mantine/core/styles.css";
 import "./globals.css"; // let this CSS override mantine's one
 
-import {
-  ColorSchemeScript,
-  MantineProvider,
-  mantineHtmlProps,
-} from "@mantine/core";
+// import {
+//   ColorSchemeScript,
+//   MantineProvider,
+//   mantineHtmlProps,
+// } from "@mantine/core";
 import NavBar from "../components/NavBar";
 import { ThemeToggleButton } from "@/features/theme/theme-components";
 import StoreProvider from "@/store/store-provider";
@@ -30,19 +29,17 @@ export default function RootLayout({
 }>) {
   // Load initial data to redux store
   return (
-    <html lang="en" {...mantineHtmlProps}>
-      <head>
-        <ColorSchemeScript />
-      </head>
+    <html lang="en">
+      <head>{/* <ColorSchemeScript /> */}</head>
       <body
         className={`${robotoMono.className} ${robotoMono.className} antialiased h-screen h-dvh`}
       >
         <StoreProvider>
-          <MantineProvider>
-            <NavBar />
-            <ThemeToggleButton className="fixed bottom-4 right-4 flex justify-center items-center" />
-            <div className="pt-[8vh] md:pt-[10vh] h-full">{children}</div>
-          </MantineProvider>
+          {/* <MantineProvider> */}
+          <NavBar />
+          <ThemeToggleButton className="fixed bottom-4 right-4 flex justify-center items-center" />
+          <div className="pt-[8vh] md:pt-[10vh] h-full">{children}</div>
+          {/* </MantineProvider> */}
         </StoreProvider>
       </body>
     </html>
