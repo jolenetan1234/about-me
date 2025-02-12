@@ -1,32 +1,38 @@
+import { Button } from "@/components/shadcn/button";
+
 export default function Home() {
   return (
-    <div className="h-full mx-[2%] my-[2%] flex flex-col space-y-20">
-      {/* <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button>
-      <Button variant="filled">Button</Button> */}
-      {/* <Grid>
-        <Grid.Col span={4} style={{ backgroundColor: "red" }}>
-          1
-        </Grid.Col>
-      </Grid> */}
+    <div className="flex flex-col space-y-20">
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
+      <Button className="text-foreground">Button1</Button>
     </div>
   );
 }

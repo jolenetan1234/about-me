@@ -66,9 +66,9 @@ const NavBar = () => {
   return (
     // sticky navbar
     <nav
-      className={`h-[8%] md:h-[10%] w-full bg-[var(--navbar-bg)] transition-all duration-300 z-20
+      className={`h-[8%] md:h-[10%] w-full bg-[var(--navbar-bg)] transition-all duration-500 z-20 shadow-md
       ${showNavbar ? "top-0" : "-top-20"}
-      ${isOpen ? "fixed top-0" : "absolute"}
+      ${isOpen ? "fixed top-0" : "fixed"}
     `}
     >
       {/* <div className="h-full w-full"> */}
@@ -96,13 +96,22 @@ const NavBar = () => {
       {/* Navbar items for small screens. Open when `isOpen`*/}
       {isOpen && (
         // <div className="w-full">
-        <ul className="md:hidden sticky top-0 left-0 w-full h-[20vh] flex flex-col mx-auto bg-[var(--navbar-bg)]">
+        <ul
+          className="md:hidden 
+        sticky top-0 left-0 w-full h-[20vh] pb-[2vh]
+        flex flex-col mx-auto 
+        bg-[var(--navbar-bg)] shadow-md"
+        >
           {navbarItems.map((item) => (
             <li
               key={item.title}
-              className="flex justify-center items-center block hover:primary-color text-center flex-1 w-[95%] m-auto mb-3"
+              className={`
+                flex-1 
+                flex justify-center items-center 
+                block hover:primary-color text-center flex-1 w-[95%] m-auto
+              `}
             >
-              <button className="w-full h-full focus:bg-primary-color hover:bg-primary-color hover:text-black focus:text-black focus:outline-none rounded-lg">
+              <button className="w-full h-full focus:bg-primary hover:bg-primary hover:text-muted-foreground focus:text-muted-foreground focus:outline-none rounded-lg">
                 {item.title}
               </button>
             </li>

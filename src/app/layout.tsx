@@ -27,19 +27,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  // Load initial data to redux store
   return (
     <html lang="en">
-      <head>{/* <ColorSchemeScript /> */}</head>
+      <head></head>
       <body
-        className={`${robotoMono.className} ${robotoMono.className} antialiased h-screen h-dvh`}
+        className={`${robotoMono.className} ${robotoMono.className} antialiased min-h-screen`}
       >
         <StoreProvider>
-          {/* <MantineProvider> */}
           <NavBar />
           <ThemeToggleButton className="fixed bottom-4 right-4 flex justify-center items-center" />
-          <div className="pt-[8vh] md:pt-[10vh] h-full">{children}</div>
-          {/* </MantineProvider> */}
+          <div className="pt-[8vh] md:pt-[10vh] h-full">
+            <div className="my-[2vh] mb-2 mx-[2%]">{children}</div>
+          </div>
         </StoreProvider>
       </body>
     </html>
