@@ -11,7 +11,8 @@ import {
   mantineHtmlProps,
 } from "@mantine/core";
 import NavBar from "../components/NavBar";
-import { ThemeToggleButton } from "@/components/ui/buttons";
+import { ThemeToggleButton } from "@/features/theme/theme-components";
+import StoreProvider from "@/store/store-provider";
 
 const robotoMono = Roboto_Mono({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Load initial data to redux store
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
@@ -35,11 +37,13 @@ export default function RootLayout({
       <body
         className={`${robotoMono.className} ${robotoMono.className} antialiased h-screen h-dvh`}
       >
-        <MantineProvider>
-          <NavBar />
-          <ThemeToggleButton className="fixed bottom-4 right-4 flex justify-center items-center" />
-          <div className="pt-[8vh] md:pt-[10vh] h-full">{children}</div>
-        </MantineProvider>
+        <StoreProvider>
+          <MantineProvider>
+            <NavBar />
+            <ThemeToggleButton className="fixed bottom-4 right-4 flex justify-center items-center" />
+            <div className="pt-[8vh] md:pt-[10vh] h-full">{children}</div>
+          </MantineProvider>
+        </StoreProvider>
       </body>
     </html>
   );

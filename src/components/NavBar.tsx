@@ -67,7 +67,6 @@ const NavBar = () => {
   return (
     // sticky navbar
     <nav
-      style={{}}
       className={`h-[8%] md:h-[10%] w-full bg-[var(--navbar-bg)] transition-all duration-300 z-20
       ${showNavbar ? "top-0" : "-top-20"}
       ${isOpen ? "fixed top-0" : "absolute"}
